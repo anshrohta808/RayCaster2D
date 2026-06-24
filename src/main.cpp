@@ -1,13 +1,14 @@
 #include <raylib.h>
 #include <math.h>
 #include "boundry.hpp"
-
+#include "ray.hpp"
 const int FPS = 60;
 Color background = BLACK;
 const int winWidth = 800, winHeight = 600;
 int main()
 {
     boundry b(700, 100, 700, 500);
+    ray r(200, 300);
 
     // Game Window Initialization
     InitWindow(winWidth, winHeight, "RAYCASTER");
@@ -23,6 +24,7 @@ int main()
         // DRAWING GAME
         BeginDrawing();
         b.draw();
+        r.drawRay();
         ClearBackground(background);
         EndDrawing();
     }
