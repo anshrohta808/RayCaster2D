@@ -23,9 +23,10 @@ int main()
 
         // DRAWING GAME
         BeginDrawing();
+        ClearBackground(background);
         b.draw();
         r.drawRay();
-        ClearBackground(background);
+        r.cast(b);
         EndDrawing();
     }
 
