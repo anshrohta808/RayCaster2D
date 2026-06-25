@@ -1,4 +1,5 @@
 #include <raylib.h>
+#include <raymath.h>
 #include <math.h>
 #include "boundry.hpp"
 #include "ray.hpp"
@@ -18,6 +19,9 @@ int main()
     while (!WindowShouldClose())
     {
         // EVENT HANDALING
+        Vector2 mousePos = GetMousePosition();
+        Vector2 rayDir = mousePos - r.pos;
+        r.dir = Vector2Normalize(rayDir);
 
         // UPDATING GAME STATE
 

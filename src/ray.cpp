@@ -12,6 +12,6 @@ void ray::cast(boundry b)
     bool hit = CheckCollisionLines(pos, Vector2{pos.x + dir.x * 600, pos.y + dir.y * 600}, b.a, b.b, &hitPoint);
     if (hit)
     {
-        DrawCircleV(hitPoint, 20.0, RED);
+        DrawCircleV(hitPoint, 12.0, RED);
     }
 }
