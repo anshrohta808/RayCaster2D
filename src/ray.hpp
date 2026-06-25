@@ -1,13 +1,17 @@
 #pragma once
 #include <raylib.h>
 #include "boundry.hpp"
+#include <vector>
 
 class ray
 {
 public:
     Vector2 pos, dir;
-    ray(float x, float y) : pos{x, y} {}
+
+    ray() {}
 
     void drawRay();
     void cast(boundry b);
+    void NormalizeRay();
+    void castAll(std::vector<boundry> b);
 };

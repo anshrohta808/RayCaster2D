@@ -3,13 +3,38 @@
 #include <math.h>
 #include "boundry.hpp"
 #include "ray.hpp"
+#include <vector>
 const int FPS = 60;
 Color background = BLACK;
 const int winWidth = 800, winHeight = 600;
 int main()
 {
-    boundry b(700, 100, 700, 500);
-    ray r(200, 300);
+    std::vector<boundry> BOUNDRY = {
+        // outer walls
+        boundry(50, 50, 750, 50),
+        boundry(750, 50, 750, 550),
+        boundry(750, 550, 50, 550),
+        boundry(50, 550, 50, 50),
+
+        // horizontal maze walls
+        boundry(50, 150, 400, 150),
+        boundry(500, 150, 750, 150),
+        boundry(150, 250, 600, 250),
+        boundry(50, 350, 300, 350),
+        boundry(400, 350, 750, 350),
+        boundry(200, 450, 550, 450),
+
+        // vertical maze walls
+        boundry(200, 150, 200, 250),
+        boundry(400, 50, 400, 150),
+        boundry(600, 150, 600, 250),
+        boundry(150, 250, 150, 350),
+        boundry(500, 250, 500, 350),
+        boundry(300, 350, 300, 450),
+        boundry(600, 350, 600, 450),
+        boundry(400, 450, 400, 550),
+    };
+    ray RAY;
 
     // Game Window Initialization
     InitWindow(winWidth, winHeight, "RAYCASTER");
@@ -20,17 +45,17 @@ int main()
     {
         // EVENT HANDALING
         Vector2 mousePos = GetMousePosition();
-        Vector2 rayDir = mousePos - r.pos;
-        r.dir = Vector2Normalize(rayDir);
+        RAY.pos = mousePos;
+        RAY.NormalizeRay();
 
         // UPDATING GAME STATE
 
         // DRAWING GAME
         BeginDrawing();
         ClearBackground(background);
-        b.draw();
-        r.drawRay();
-        r.cast(b);
+        for (auto &wall : BOUNDRY)
+            wall.draw();
+        RAY.castAll(BOUNDRY);
         EndDrawing();
     }
 
