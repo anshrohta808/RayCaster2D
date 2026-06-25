@@ -7,7 +7,7 @@
 
 void ray::drawRay()
 {
-    DrawLine(pos.x, pos.y, pos.x + dir.x * 600, pos.y + dir.y * 600, WHITE);
+    DrawLine(pos.x, pos.y, pos.x + dir.x * 600, pos.y + dir.y * 600, YELLOW);
 }
 
 void ray::cast(boundry b)
@@ -54,7 +54,7 @@ void ray::castAll(std::vector<boundry> b)
             drawRay();
         else
         {
-            DrawLineV(pos, closestDist, WHITE);
+            DrawLineV(pos, closestDist, RED);
         }
     }
 }

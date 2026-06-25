@@ -25,10 +25,6 @@ int main()
         boundry(200, 450, 550, 450),
 
         // vertical maze walls
-        boundry(200, 150, 200, 250),
-        boundry(400, 50, 400, 150),
-        boundry(600, 150, 600, 250),
-        boundry(150, 250, 150, 350),
         boundry(500, 250, 500, 350),
         boundry(300, 350, 300, 450),
         boundry(600, 350, 600, 450),
