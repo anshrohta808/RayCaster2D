@@ -1,8 +1,8 @@
 #include <raylib.h>
 #include <raymath.h>
 #include <math.h>
-#include "boundry.hpp"
-#include "ray.hpp"
+#include "boundry2D.hpp"
+#include "ray2D.hpp"
 #include <vector>
 const int FPS = 60;
 Color background = BLACK;
